@@ -1,0 +1,51 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/14 13:53:43 by rdel-agu          #+#    #+#              #
+#    Updated: 2022/11/14 17:52:34 by rdel-agu         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = SC4V-TP
+
+CXX = c++
+
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
+
+RM = rm
+
+OBJ = $(SRC:.cpp=.o)    
+
+SRC =	main.cpp\
+		ClapTrap.cpp\
+		ScavTrap.cpp
+		
+
+INCL =	color.hpp\
+		ClapTrap.hpp\
+		ScavTrap.hpp
+		
+all: $(NAME)
+
+%.o: %.cpp 
+	@$(CXX) $(CXXFLAGS)  -I/usr/include -I INCL -c $< -o $@
+		
+$(NAME):  $(OBJ)
+	@echo " \033[0;31mCompiling $(NAME)...\033[0m"
+	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	@echo " \033[0;32mSuccess\033[0m"
+	
+clean:
+	@$(RM) -f $(OBJ) 
+	@echo " \033[0;32mCleaning done!\033[0m"
+	
+fclean: clean
+	@$(RM) -f $(NAME)
+
+re: fclean all
+	
+.PHONY: clean fclean
