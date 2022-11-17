@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 22:30:38 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/15 22:45:41 by rdel-agu         ###   ########.fr       */
+/*   Created: 2022/11/15 22:01:55 by rdel-agu          #+#    #+#             */
+/*   Updated: 2022/11/16 14:22:09 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-WrongCat::WrongCat( void ) : WrongAnimal( "WrongCat" ) {
+Dog::Dog( void ) : Animal( "Dog" ) {
 
-    std::cout << YEL << "WrongCat's default constructor called" << CRESET << std::endl;
+    std::cout << YEL << "Dog's default constructor called" << CRESET << std::endl;
     return ;
 }
 
-WrongCat::WrongCat( const WrongCat &ref) {
+Dog::Dog( const Dog &ref) : Animal( ref ) {
 
     *this = ref;
     return ;
 }
 
-WrongCat::~WrongCat( void ) {
+Dog::~Dog( void ) {
 
-    std::cout << MAG << "WrongCat's destructor called" << CRESET << std::endl;
+    std::cout << MAG << "Dog's destructor called" << CRESET << std::endl;
 }
 
-WrongCat& WrongCat::operator=( const WrongCat &ref ) {
+Dog& Dog::operator=( const Dog &ref ) {
 
+    if (this == &ref) {return *this;}
     _type = ref._type;
     return ( *this );
 }
 
-void    WrongCat::makeSound( void ) const {
+void    Dog::makeSound( void ) const {
 
-    std::cout << BLU << "Chirp!!" << CRESET << std::endl;
+    std::cout << BLU << "Woof!!" << CRESET << std::endl;
 }

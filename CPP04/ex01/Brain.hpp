@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 19:26:31 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/15 22:49:21 by rdel-agu         ###   ########.fr       */
+/*   Created: 2022/11/16 14:55:19 by rdel-agu          #+#    #+#             */
+/*   Updated: 2022/11/16 15:58:33 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
-# include <string>
-# include "color.hpp"
+# include <string> 
 
-class Animal {
+class Brain {
 
-	protected:
+    private:
 
-		std::string _type;
+        std::string _ideas[100];
 
-	public:
+    public:
 
-		Animal( void );
-		Animal( const std::string );
-		Animal( const Animal& );
-		~Animal( void );
-		
-		Animal& operator=( const Animal& );
+        Brain( void );
+        Brain( const Brain &ref );
+        ~Brain( void );
+        
+        Brain& operator=( const Brain &ref );
 
-		void			makeSound( void ) const;
-		std::string		getType( void ) const;
-		void			setType( const std::string type );
 };
 
 #endif

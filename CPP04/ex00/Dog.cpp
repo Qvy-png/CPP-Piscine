@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:01:55 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/15 22:19:33 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:22:09 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog( void ) : Animal( "Dog" ) {
     return ;
 }
 
-Dog::Dog( const Dog &ref) {
+Dog::Dog( const Dog &ref) : Animal( ref ) {
 
     *this = ref;
     return ;

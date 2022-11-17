@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:21:36 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/15 21:53:55 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:38:24 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat( void ) : Animal( "Cat" ) {
     return ;
 }
 
-Cat::Cat( const Cat &ref) {
+Cat::Cat( const Cat &ref ) : Animal( ref ) {
 
     *this = ref;
     return ;
