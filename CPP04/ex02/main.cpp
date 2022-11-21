@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:26:14 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/21 15:08:55 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:48:59 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,17 @@ int main()
     
     delete( ChirpLeChat );
     
+    std::cout << std::endl << std::endl;
+    
+    /////////////////////////////////
+    //                             //
+    //        Abstract stuff       //
+    //                             //
+    /////////////////////////////////
+
+    // Animal  *animal = new Animal();
+    
+    // animal->makeSound();
+
     return 0;
 }

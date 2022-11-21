@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:26:31 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/16 15:18:29 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:48:42 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Animal {
 		
 		Animal& operator=( const Animal& );
 
-		virtual void			makeSound( void ) const;
+		virtual void			makeSound( void ) const = 0;
 		std::string		getType( void ) const;
 		void			setType( const std::string type );
 };
