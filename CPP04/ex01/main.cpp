@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:26:14 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/16 17:21:53 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:56:11 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,62 @@
 
 int main()
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
 
-    // const Brain* cb = new Brain();
-
-    // i->_ideas = cb;
+    /////////////////////////////////
+    //                             //
+    //      mendatory main part    //
+    //                             //
+    /////////////////////////////////
     
-    delete j;//should not create a leak
-    delete i;
-    // ...
+    Animal   *tabAnimal[10];
+    int i;
+
+    i = 0;
+    while ( i < 10 ) {
+    
+        if ( ( i % 2 ) == 0 )
+            tabAnimal[i] = new Cat();
+        else
+            tabAnimal[i] = new Dog();
+        i++;
+    }
+
+    std::cout << std::endl;
+    
+    i = 0;
+
+    while ( i < 10 )
+        std::cout << BLU << "The " << tabAnimal[i]->getType() << " says " << CRESET, tabAnimal[i++]->makeSound();
+
+    std::cout << std::endl;
+
+    i = 0;
+    while ( i < 10 ) {
+
+        delete( tabAnimal[i++] );
+	}
+    
+    std::cout << std::endl << std::endl;
+
+    /////////////////////////////////
+    //                             //
+    //        testing ideas        //
+    //                             //
+    /////////////////////////////////
+
+	Cat	*leChat = new Cat();
+    std::cout << std::endl;
+	
+	std::string idea0 = "Miaou";
+	std::string idea1 = "J\'ai faim wsh";
+	leChat->setIdeas( idea0, 0 );
+	leChat->setIdeas( idea1, 1 );
+
+    std::cout << BLU << leChat->getIdeas(0) << CRESET << std::endl;
+    std::cout << BLU << leChat->getIdeas(1) << CRESET << std::endl;
+    
+    std::cout << std::endl << std::endl;
+
+    delete( leChat );
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:21:51 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/16 17:21:19 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:17:57 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Cat : public Animal {
 		Cat& operator=( const Cat& );
 
 		void	makeSound( void ) const;
+		std::string	getIdeas( int ) const;
+		void		setIdeas( std::string, int );
 };
 
 #endif

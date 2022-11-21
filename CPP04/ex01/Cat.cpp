@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:21:36 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/16 17:22:19 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:18:13 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 Cat::Cat( void ) : Animal( "Cat" ) {
 
     std::cout << YEL << "Cat's default constructor called" << CRESET << std::endl;
-    Brain* catBrain = new Brain();
-    _ideas = catBrain;
+    _ideas = new Brain();
     return ;
 }
 
 Cat::Cat( const Cat &ref ) : Animal( ref ) {
 
     *this = ref;
+    _ideas = new Brain();
     return ;
 }
 
@@ -36,6 +36,8 @@ Cat::~Cat( void ) {
 
 Cat& Cat::operator=( const Cat &ref ) {
 
+    if ( this == &ref )
+        return ( *this );
     _type = ref._type;
     return ( *this );
 }
@@ -43,4 +45,14 @@ Cat& Cat::operator=( const Cat &ref ) {
 void    Cat::makeSound( void ) const {
 
     std::cout << BLU << "Meow!!" << CRESET << std::endl;
+}
+
+std::string	Cat::getIdeas( int pos ) const {
+
+	return ( _ideas->getIdeas( pos ) );
+}
+
+void	Cat::setIdeas( std::string idea, int pos ) {
+
+    _ideas->setIdeas( idea, pos );
 }

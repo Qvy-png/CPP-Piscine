@@ -6,7 +6,7 @@
 #    By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 18:13:13 by rdel-agu          #+#    #+#              #
-#    Updated: 2022/11/15 22:30:52 by rdel-agu         ###   ########.fr        #
+#    Updated: 2022/11/21 13:48:39 by rdel-agu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,15 @@ SRC =	main.cpp\
 		Cat.cpp\
 		Dog.cpp\
 		WrongCat.cpp\
-		WrongAnimal.cpp
+		WrongAnimal.cpp\
+		Brain.cpp
 
 INCL =	Animal.hpp\
 		Cat.hpp\
 		Dog.hpp\
 		WrongCat.hpp\
 		WrongAnimal.hpp\
+		Brain.hpp\
 		color.hpp
 		
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:02:25 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/16 15:41:29 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:15:43 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ class Dog : public Animal {
 		
 		Dog& operator=( const Dog& );
 
-		void	makeSound( void ) const ;
+		void		makeSound( void ) const ;
+		std::string	getIdeas( int ) const;
+		void		setIdeas( std::string, int );
 };
 
 #endif
