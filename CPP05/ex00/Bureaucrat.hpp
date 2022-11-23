@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:34:41 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/23 15:27:27 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:02:48 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,27 @@ class Bureaucrat {
 		Bureaucrat( const Bureaucrat& ref );
 		~Bureaucrat( void );
 
-		Bureaucrat			operator=( const Bureaucrat& ref );
+		Bureaucrat&			operator=( const Bureaucrat& ref );
 
 		const std::string	getName( void ) const;
 		int					getGrade( void ) const;
 		
-		void				incrementGrade( void );
-		void				decrementGrade( void );
+		void				incrementGrade( int );
+		void				decrementGrade( int );
 
-		std::exception		GradeTooHighException( void );
-		std::exception		GradeTooLowException( void );
+		class GradeTooHighException : public std::exception {
+		
+			public:
+			
+				virtual const char* what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception {
+			
+			public:
+				
+				virtual const char* what() const throw();
+		};
 };
 
 #endif

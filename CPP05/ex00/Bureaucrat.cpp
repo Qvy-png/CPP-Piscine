@@ -6,13 +6,13 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:10:45 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/23 15:29:59 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:23:37 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ) : _name( "Default" ), _grade( 0 ) {
+Bureaucrat::Bureaucrat( void ) : _name( "Default" ), _grade( 1 ) {
 
 	std::cout << YEL << "Bureaucrat's default constructor called" << CRESET << std::endl;
 	return ;
@@ -21,6 +21,10 @@ Bureaucrat::Bureaucrat( void ) : _name( "Default" ), _grade( 0 ) {
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name( name ), _grade( grade ) {
 
 	std::cout << YEL << "Bureaucrat's complete constructor called" << CRESET << std::endl;
+	if ( grade < 1 )
+		throw Bureaucrat::GradeTooHighException();
+	if ( grade > 150 )
+		throw Bureaucrat::GradeTooLowException();
 	return ;
 }
 
@@ -35,6 +39,19 @@ Bureaucrat::~Bureaucrat( void ) {
 	std::cout << MAG << "Bureaucrat's destructor called" << CRESET << std::endl;
 }
 
+Bureaucrat&	Bureaucrat::operator=( const Bureaucrat& ref ) {
+
+	if ( this == &ref )
+		return ( *this );
+
+	std::string* strPtr = (std::string*)&this->_name;
+
+	_grade = ref._grade;
+	*strPtr = ref._name;
+	return ( *this );
+	
+}
+
 const std::string	Bureaucrat::getName( void ) const {
 
 	return ( _name );
@@ -45,32 +62,29 @@ int					Bureaucrat::getGrade( void ) const {
 	return ( _grade );
 }
 
-std::exception		Bureaucrat::GradeTooHighException( void ) {
+const char* 		Bureaucrat::GradeTooHighException::what( void ) const throw() {
 
-	return (std::exception());
+	return ( REDHB "Grade too high!" CRESET );
 }
 
-std::exception		Bureaucrat::GradeTooLowException( void ) {
+const char* 		Bureaucrat::GradeTooLowException::what( void ) const throw() {
 
-	return (std::exception());
+	return ( REDHB "Grade too low!" CRESET );
 }
 
-void				Bureaucrat::incrementGrade( void ) {
+void				Bureaucrat::incrementGrade( int increment ) {
 
-	try {
-		if ( _grade == 150 )
-			throw Bureaucrat::GradeTooHighException(); //std::exception()
-		else
-			_grade++;
-	}
+	if ( _grade + increment > 150 )
+		throw Bureaucrat::GradeTooHighException();
+	else
+		_grade += increment;
+	
 }
 
-void				Bureaucrat::decrementGrade( void ) {
+void				Bureaucrat::decrementGrade( int decrement ) {
 
-	try {
-		if ( _grade == 1 )
-			throw Bureaucrat::GradeTooLowException(); //std::exception()
-		else
-			_grade--;
-	}
+	if ( _grade - decrement < 1 )
+		throw Bureaucrat::GradeTooLowException();
+	else
+		_grade -= decrement;
 }
