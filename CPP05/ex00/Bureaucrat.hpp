@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:34:41 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/22 15:12:00 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:27:27 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,33 @@
 
 # include "color.hpp"
 # include <stdexcept>
+# include <iostream>
+# include <string>
 
 class Bureaucrat {
 
 	private:
 	
 		const std::string	_name;
-		unsigned int		_grade;
+		int					_grade;
 	
 	public:
 
 		Bureaucrat( void );
-		Bureaucrat( std::string, unsigned int );
+		Bureaucrat( std::string, int );
 		Bureaucrat( const Bureaucrat& ref );
 		~Bureaucrat( void );
 
-		Bureaucrat operator=( const Bureaucrat& ref );
+		Bureaucrat			operator=( const Bureaucrat& ref );
 
-		void			nameSetter( std::string );
-		std::string		nameGetter( void ) const;
-		void			gradeSetter( unsigned int );
-		unsigned int	gradeGetter( void ) const;
+		const std::string	getName( void ) const;
+		int					getGrade( void ) const;
+		
+		void				incrementGrade( void );
+		void				decrementGrade( void );
+
+		std::exception		GradeTooHighException( void );
+		std::exception		GradeTooLowException( void );
 };
 
 #endif
