@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:34:41 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/23 16:02:48 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/24 12:29:06 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ class Bureaucrat {
 				virtual const char* what() const throw();
 		};
 };
+
+std::ostream& operator<<( std::ostream&, const Bureaucrat& );
 
 #endif
