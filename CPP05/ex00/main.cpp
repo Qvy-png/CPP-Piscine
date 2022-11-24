@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:34:25 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/23 16:26:10 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:27:54 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int main( void ) {
 
-    Bureaucrat *crat = new Bureaucrat();
+    Bureaucrat *crat;
+    
+    crat = new Bureaucrat("Jacques", 1);
 
     //////////////////////////////////////
     //                                  //
@@ -22,7 +24,7 @@ int main( void ) {
     //                                  //
     //////////////////////////////////////
 
-    std::cout << " simple increment test" << std::endl;
+    std::cout << " simple incrementGrade( 10 ) test on " << *crat << std::endl;
     try {
         crat->incrementGrade( 10 );
         std::cout << GRN "You should be able to see me" CRESET << std::endl;
@@ -38,7 +40,7 @@ int main( void ) {
     //                                  //
     //////////////////////////////////////
     
-    std::cout << " simple decrement test" << std::endl;
+    std::cout << " simple decrementGrade( 10 ) test on " << *crat << std::endl;
     try {
         crat->decrementGrade( 10 );
         std::cout << GRN "You should be able to see me" CRESET << std::endl;
@@ -54,7 +56,7 @@ int main( void ) {
     //                                  //
     //////////////////////////////////////
     
-    std::cout << " decrement over grade" << std::endl;
+    std::cout << " decrement over grade of 10 on " << *crat << std::endl;
     try {
         crat->decrementGrade( 10 );
         std::cout << RED "You should not be able to see me" CRESET << std::endl;
@@ -70,7 +72,7 @@ int main( void ) {
     //                                  //
     //////////////////////////////////////    
 
-    std::cout << " increment over grade" << std::endl;
+    std::cout << " increment over grade of 300 on " << *crat << std::endl;
     try {
         crat->incrementGrade( 300 );
         std::cout << RED "You should not be able to see me" CRESET << std::endl;
@@ -80,6 +82,6 @@ int main( void ) {
         std::cout << e.what() << std::endl;
     }
 
-    delete ( crat );
+    delete( crat );
     return ( 0 );
 }

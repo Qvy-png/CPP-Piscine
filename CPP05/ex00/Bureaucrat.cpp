@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:10:45 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/23 16:23:37 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:20:14 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ Bureaucrat&	Bureaucrat::operator=( const Bureaucrat& ref ) {
 	*strPtr = ref._name;
 	return ( *this );
 	
+}
+
+std::ostream& operator<<( std::ostream& stream, const Bureaucrat& source ) {
+
+	stream << source.getName() << ", bureaucrat grade " << source.getGrade() << ".";
+	return ( stream );
 }
 
 const std::string	Bureaucrat::getName( void ) const {
