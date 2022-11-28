@@ -6,7 +6,7 @@
 #    By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/22 14:31:34 by rdel-agu          #+#    #+#              #
-#    Updated: 2022/11/22 14:32:09 by rdel-agu         ###   ########.fr        #
+#    Updated: 2022/11/28 12:53:53 by rdel-agu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,10 @@ OBJ = $(SRC:.cpp=.o)
 
 SRC =	main.cpp\
 		Bureaucrat.cpp\
+		Form.cpp
 
 INCL =	Bureaucrat.hpp\
+		Form.hpp\
 		color.hpp
 		
 all: $(NAME)

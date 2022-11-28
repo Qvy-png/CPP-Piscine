@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:10:45 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/24 14:20:14 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:22:44 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,17 @@ const char* 		Bureaucrat::GradeTooLowException::what( void ) const throw() {
 
 void				Bureaucrat::incrementGrade( int increment ) {
 
-	if ( _grade + increment > 150 )
+	if ( _grade - increment < 1 )
 		throw Bureaucrat::GradeTooHighException();
 	else
-		_grade += increment;
+		_grade -= increment;
 	
 }
 
 void				Bureaucrat::decrementGrade( int decrement ) {
 
-	if ( _grade - decrement < 1 )
+	if ( _grade + decrement > 150 )
 		throw Bureaucrat::GradeTooLowException();
 	else
-		_grade -= decrement;
+		_grade += decrement;
 }
