@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:34:25 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 13:15:34 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:47:02 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int main( void ) {
 		Form		Form( "A123", 150, 150 );
 
 		std::cout << Form << std::endl;
-		Form.beSigned( Simon );
+		Simon.signForm( Form );
 		std::cout << Form << std::endl;
 	}
 	catch(const std::exception& e)
@@ -87,11 +87,13 @@ int main( void ) {
 		Form		Form( "A123", 1, 1 );
 
 		std::cout << Form << std::endl;
-		Form.beSigned( Simon );
+		Simon.signForm( Form );
 		std::cout << Form << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
+
+	return ( 0 );
 }

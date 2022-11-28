@@ -6,11 +6,11 @@
 #    By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/22 14:31:34 by rdel-agu          #+#    #+#              #
-#    Updated: 2022/11/28 12:53:53 by rdel-agu         ###   ########.fr        #
+#    Updated: 2022/11/28 18:31:40 by rdel-agu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = MoreBureacratStuff
 
 CXX = c++
 
@@ -22,11 +22,17 @@ OBJ = $(SRC:.cpp=.o)
 
 SRC =	main.cpp\
 		Bureaucrat.cpp\
-		Form.cpp
+		Form.cpp\
+		ShrubberyCreationForm.cpp\
+		PresidentialPardonForm.cpp\
+		RobotomyRequestForm.cpp
 
 INCL =	Bureaucrat.hpp\
 		Form.hpp\
-		color.hpp
+		color.hpp\
+		ShrubberyCreationForm.hpp\
+		PresidentialPardonForm.hpp\
+		RobotomyRequestForm.hpp\
 		
 all: $(NAME)
 

@@ -6,11 +6,12 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:10:45 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 13:22:44 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:38:40 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat( void ) : _name( "Default" ), _grade( 1 ) {
 
@@ -93,4 +94,18 @@ void				Bureaucrat::decrementGrade( int decrement ) {
 		throw Bureaucrat::GradeTooLowException();
 	else
 		_grade += decrement;
+}
+
+void				Bureaucrat::signForm( Form& form ) {
+
+	try
+	{
+		form.beSigned( *this );
+		std::cout << BLU << _name << " signed " << form.getName() << "." CRESET << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << REDHB << _name << " couldn't sign " << form.getName() << " because " << e.what() << "." CRESET << std::endl;
+	}
+	
 }

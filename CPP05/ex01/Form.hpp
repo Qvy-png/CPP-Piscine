@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 16:31:10 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 12:38:01 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:34:09 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FORM_HPP
 
 # include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
     

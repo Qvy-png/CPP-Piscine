@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 16:31:10 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 12:38:01 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:35:16 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FORM_HPP
 
 # include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
     
@@ -29,7 +31,7 @@ class Form {
         Form( void );
         Form( std::string, int, int );
         Form( const Form& );
-        ~Form( void );
+        virtual ~Form( void );
 
         Form& operator=( const Form& );
 
@@ -38,7 +40,8 @@ class Form {
 		int			getSignGrade( void ) const;
 		int 		getExecGrade( void ) const;
 
-		void		beSigned( const Bureaucrat& );
+		void		    beSigned( const Bureaucrat& );
+        virtual void    execute( const Bureaucrat& ) const = 0;
 
         class GradeTooHighException : public std::exception {
         

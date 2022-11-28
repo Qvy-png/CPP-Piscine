@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 16:31:35 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 13:13:29 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:50:13 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Form::Form( std::string name, int signGrade, int execGrade ) : _name( name ), _i
         throw Form::GradeTooLowException();
     else if ( _signGrade < 1 || _execGrade < 1 )
         throw Form::GradeTooHighException();
-    std::cout << "Form's complete constructor called" << std::endl;
+    std::cout << YEL "Form's complete constructor called" CRESET << std::endl;
     return ;
 }
 

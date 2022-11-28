@@ -6,73 +6,57 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:34:25 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 13:15:34 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:50:09 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main( void ) {
 
-	////////////////////////////////////////
-	//									  //
-	//			Form exceptions			  //
-	//									  //
-	////////////////////////////////////////
-
-	try
-	{
-		Form	Form( "A123", 0, 1 );
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	try
-	{
-		Form	Form( "A123", 1, 0 );
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	try
-	{
-		Form	Form( "A123", 1, 151 );
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	try
-	{
-		Form	Form( "A123", 151, 1 );
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	std::cout << std::endl << std::endl;
+	Form			*form = NULL;
+	Bureaucrat		High( "High", 1 );
+	Bureaucrat		Mid( "Mid", 75 );
+	Bureaucrat		Low( "Low", 150 );
 	
-	////////////////////////////////////////
-	//									  //
-	//	      Form and Bureaucrat	      //
-	//									  //
-	////////////////////////////////////////
+	std::cout << std::endl << std::endl;
 
 	try
 	{
-		Bureaucrat	Simon = Bureaucrat( "Simon", 1 );
-		Form		Form( "A123", 150, 150 );
+		form = new PresidentialPardonForm( "A123" );
+		form->execute( High );
+		delete ( form );
+		form = NULL;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+	std::cout << std::endl;
 
-		std::cout << Form << std::endl;
-		Form.beSigned( Simon );
-		std::cout << Form << std::endl;
+	try
+	{
+		form = new RobotomyRequestForm( "A123" );
+		form->execute( Mid );
+		delete ( form );
+		form = NULL;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+	std::cout << std::endl;
+
+	try
+	{
+		form = new ShrubberyCreationForm( "A123" );
+		form->execute( Low );
+		delete ( form );
+		form = NULL;
 	}
 	catch(const std::exception& e)
 	{
@@ -80,18 +64,19 @@ int main( void ) {
 	}
 	
 	std::cout << std::endl << std::endl;
-	
-	try
-	{
-		Bureaucrat	Simon = Bureaucrat( "Simon", 10 );
-		Form		Form( "A123", 1, 1 );
 
-		std::cout << Form << std::endl;
-		Form.beSigned( Simon );
-		std::cout << Form << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	High.executeForm( PresidentialPardonForm( "A123" ) );
+	Mid.executeForm( PresidentialPardonForm( "A123" ) );
+	
+	std::cout << std::endl;
+	
+	High.executeForm( RobotomyRequestForm( "A123" ) );
+	Mid.executeForm( RobotomyRequestForm( "A123" ) );
+
+	std::cout << std::endl;
+
+	High.executeForm( ShrubberyCreationForm( "A123" ) );
+
+	delete form;
+	return ( 0 );	
 }
