@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 16:31:10 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 19:35:16 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:49:35 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Form {
 
         const std::string   _name;
         bool                _isSigned;
-        int                 _signGrade;
-        int                 _execGrade;
+        const int           _signGrade;
+        const int           _execGrade;
 
     public:
 

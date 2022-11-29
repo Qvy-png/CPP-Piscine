@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:10:45 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 19:38:40 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:46:20 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void				Bureaucrat::signForm( Form& form ) {
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << REDHB << _name << " couldn't sign " << form.getName() << " because " << e.what() << "." CRESET << std::endl;
+		std::cout << REDHB << _name << " couldn't sign " << form.getName() << " because " << e.what() << CRESET << std::endl;
 	}
 	
 }
