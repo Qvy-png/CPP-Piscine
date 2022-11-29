@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:01:20 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 19:51:59 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:30:54 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,16 @@ RobotomyRequestForm::~RobotomyRequestForm( void ) {
 
 void RobotomyRequestForm::execute( const Bureaucrat& exec ) const {
 
+    int i;
+    
     if ( exec.getGrade() > getExecGrade() )
         throw Form::GradeTooLowException();
     else {
     
+        std::srand( time( NULL ) );
+        i = std::rand() % 2;
         std::cout << BLU "BRRRRRRRRRRRRR" CRESET << std::endl;
-        srand( time( NULL ) );
-        if (std::rand() % 2 == 0)
+        if ( i == 0 )
             std::cout << BLU << exec.getName() << " had been robotomized with 50\% of success!" CRESET << std::endl;
         else
             std::cout << REDHB "The robotization of " << exec.getName() << " had failed!" CRESET << std::endl;

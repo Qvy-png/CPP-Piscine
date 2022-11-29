@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:55:56 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 18:01:12 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:29:06 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "Form.hpp"
+#include <cstdlib>
+
 
 class RobotomyRequestForm : public Form {
 

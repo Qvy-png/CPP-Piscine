@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberycreationForm.cpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:15:04 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 16:00:32 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:29:56 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,16 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void ) {
 
 void    ShrubberyCreationForm::execute( const Bureaucrat& exec ) const {
 
+    std::string shrubbery;
+
     if ( exec.getGrade() > getExecGrade() )
         throw Form::GradeTooLowException();
     else {
     
         std::ofstream ofstream;
 
-        ofstream.open( exec.getName() + "_shrubbery" );
+        shrubbery = exec.getName() + "_shrubbery";
+        ofstream.open( shrubbery.c_str() );
         if ( ofstream.fail() ) {
         
             std::cout << REDHB "Can't create file " << exec.getName() << "_shrubbery" CRESET << std::endl;
