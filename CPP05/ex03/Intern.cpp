@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:32:14 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/29 15:00:59 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:05:32 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ Form*   Intern::makeForm( const std::string formName, const std::string formTarg
                 delete ( formList[i] );
             i++;
         }
+        std::cout << GRN << "Intern creates " << formNames[j] << CRESET << std::endl;
         return ( formList[j] );
     }
     else {
@@ -68,7 +69,7 @@ Form*   Intern::makeForm( const std::string formName, const std::string formTarg
         i = 0;
         while (i < NBR_FORMS )
             delete ( formList[i++] );
-        std::cout << REDHB "The intern can't find the requested form!" CRESET << std::endl;
+        std::cout << REDHB "Intern can't find the requested form!" CRESET << std::endl;
         return ( NULL );
     }
 	
