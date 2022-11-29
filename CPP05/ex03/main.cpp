@@ -6,77 +6,47 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:34:25 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 19:50:09 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:02:19 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main( void ) {
 
-	Form			*form = NULL;
-	Bureaucrat		High( "High", 1 );
-	Bureaucrat		Mid( "Mid", 75 );
-	Bureaucrat		Low( "Low", 150 );
+	Form* A1;
+	Form* A2;
+	Form* A3;
+	Form* A4;
+	Intern someRandomIntern;
+
+	std::cout << std::endl << std::endl;
+	
+	A1 = someRandomIntern.makeForm("presidential pardon", "Obama Prism");
+	std::cout << GRN << A1->getName() << CRESET << std::endl;
+
+	std::cout << std::endl << std::endl;
+	
+	A2 = someRandomIntern.makeForm("robotomy request", "Bender");
+	std::cout << GRN << A2->getName() << CRESET << std::endl;
 	
 	std::cout << std::endl << std::endl;
-
-	try
-	{
-		form = new PresidentialPardonForm( "A123" );
-		form->execute( High );
-		delete ( form );
-		form = NULL;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
 	
-	std::cout << std::endl;
-
-	try
-	{
-		form = new RobotomyRequestForm( "A123" );
-		form->execute( Mid );
-		delete ( form );
-		form = NULL;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
-	std::cout << std::endl;
-
-	try
-	{
-		form = new ShrubberyCreationForm( "A123" );
-		form->execute( Low );
-		delete ( form );
-		form = NULL;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	A3 = someRandomIntern.makeForm("shrubbery creation", "Tree");
+	std::cout << GRN << A3->getName() << CRESET << std::endl;
 	
 	std::cout << std::endl << std::endl;
-
-	High.executeForm( PresidentialPardonForm( "A123" ) );
-	Mid.executeForm( PresidentialPardonForm( "A123" ) );
 	
-	std::cout << std::endl;
-	
-	High.executeForm( RobotomyRequestForm( "A123" ) );
-	Mid.executeForm( RobotomyRequestForm( "A123" ) );
+	A4 = someRandomIntern.makeForm("Jacques", "Jacques");
+	// std::cout << A4->getName() << std::endl; // ne peut pas afficher car n'existe pas 
 
-	std::cout << std::endl;
+	std::cout << std::endl << std::endl;
 
-	High.executeForm( ShrubberyCreationForm( "A123" ) );
-
-	delete form;
-	return ( 0 );	
+	delete ( A1 );
+	delete ( A2 );
+	delete ( A3 );
+	return ( 0 );
 }

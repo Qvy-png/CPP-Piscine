@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:32:21 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/29 14:03:21 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:34:49 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "Form.hpp"
 # include "Bureaucrat.hpp"
-# include "PresidentialPardonform.hpp"
+# include "PresidentialPardonForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "ShrubberyCreationForm.hpp"
 

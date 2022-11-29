@@ -6,7 +6,7 @@
 #    By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/22 14:31:34 by rdel-agu          #+#    #+#              #
-#    Updated: 2022/11/28 18:31:40 by rdel-agu         ###   ########.fr        #
+#    Updated: 2022/11/29 14:34:13 by rdel-agu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC =	main.cpp\
 		Form.cpp\
 		ShrubberyCreationForm.cpp\
 		PresidentialPardonForm.cpp\
-		RobotomyRequestForm.cpp
+		RobotomyRequestForm.cpp\
+		Intern.cpp
 
 INCL =	Bureaucrat.hpp\
 		Form.hpp\
@@ -33,6 +34,7 @@ INCL =	Bureaucrat.hpp\
 		ShrubberyCreationForm.hpp\
 		PresidentialPardonForm.hpp\
 		RobotomyRequestForm.hpp\
+		Intern.hpp
 		
 all: $(NAME)
 

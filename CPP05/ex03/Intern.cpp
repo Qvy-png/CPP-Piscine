@@ -6,12 +6,12 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:32:14 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/29 14:14:22 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:00:59 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-#define NBR_FORMS = 3
+#define NBR_FORMS 3
 
 Intern::Intern( void ) {
 
@@ -34,20 +34,42 @@ Intern::~Intern( void ) {
 
 Intern& Intern::operator=( const Intern& ref ) {
     
+    if ( this == &ref )
+        return ( *this );
     return ( *this );
 }
 
 Form*   Intern::makeForm( const std::string formName, const std::string formTarget ) {
 
-    std::string	formNames[NBR_FORMS] = { "president pardon", "robotomy request", "shubbery creation" };
-    Form*		formList[NBR_FORMS] = { new PresidentialPardonForm( formName ), new RobotomyRequestForm( formName ), new ShrubberyCreationForm( formName ) };
+    std::string	formNames[NBR_FORMS] = { "presidential pardon", "robotomy request", "shrubbery creation" };
+    Form*		formList[NBR_FORMS] = { new PresidentialPardonForm( formTarget ), new RobotomyRequestForm( formTarget ), new ShrubberyCreationForm( formTarget ) };
 	int			i = 0;
+    int         j = -1;
 
 	while (i < NBR_FORMS ){
 	
 		if ( formNames[i] == formName )
-			return ( formList[i] );
+			j = i;
 		i++;
 	}
-	std::cout << REDHB "The intern can't find the requested form!" CRESET << std::endl;
+    if ( j != -1 ) {
+        
+        i = 0;
+        while ( i < NBR_FORMS ) {
+        
+            if ( i != j )
+                delete ( formList[i] );
+            i++;
+        }
+        return ( formList[j] );
+    }
+    else {
+    
+        i = 0;
+        while (i < NBR_FORMS )
+            delete ( formList[i++] );
+        std::cout << REDHB "The intern can't find the requested form!" CRESET << std::endl;
+        return ( NULL );
+    }
+	
 }
