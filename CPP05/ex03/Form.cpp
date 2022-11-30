@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 16:31:35 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/11/28 17:50:13 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:40:42 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ Form&   Form::operator=( const Form& ref ) {
         return ( *this );
     
     std::string *stringPTR = ( std::string* )&this->_name;
-    int         *signGrade = &this->_signGrade;
-    int         *execGrade = &this->_execGrade;
+    int   *signGrade = ( int* )&this->_signGrade;
+    int   *execGrade = ( int* )&this->_execGrade;
 
     *stringPTR = ref._name;
     *signGrade = ref._signGrade;
