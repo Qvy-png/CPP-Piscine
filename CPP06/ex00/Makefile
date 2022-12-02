@@ -6,7 +6,7 @@
 #    By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/22 14:31:34 by rdel-agu          #+#    #+#              #
-#    Updated: 2022/11/30 14:14:18 by rdel-agu         ###   ########.fr        #
+#    Updated: 2022/12/01 10:27:20 by rdel-agu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,9 @@ RM = rm
 OBJ = $(SRC:.cpp=.o)    
 
 SRC =	main.cpp\
-		convert.cpp\
+		Convert.cpp\
 
-INCL =	convert.hpp\
+INCL =	Convert.hpp\
 		color.hpp
 		
 all: $(NAME)

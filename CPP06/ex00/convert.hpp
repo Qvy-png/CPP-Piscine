@@ -15,30 +15,51 @@
 
 # include <string>
 # include <iostream>
+# include <stdlib.h>
+
 # include "color.hpp"
 
-class convert {
+class Convert {
 
     private :
 
 		char	_c;
+		bool	_cOver;
+
 		int		_i;
+		bool	_iOver;
+		
 		float	_f;
+		bool	_fOver;
+
 		double	_d;
+		bool	_dOver;
+
+		bool	_infPos;
+		bool	_infNeg;
+		bool	_nan;
+		bool	_err;
 
     public :
 
-		convert( void );
-		convert( char* );
-		// convert( char );
-		// convert( int );
-		// convert( float );
-		// convert( double );
-		convert( const convert& );
-		~convert( void );
+		Convert( void );
+		Convert( std::string& );
+		Convert( const Convert& );
+		~Convert( void );
 
-		convert&	operator=( const convert& );
-		void		writeDown( const convert& );
+		Convert&	operator=( const Convert& );
+
+		void		convertChar( std::string& );
+		void		convertInt( std::string& );
+		void		convertFloat( std::string& );
+		void		convertDouble( std::string& );
+
+		void		putChar( void ) const;
+		void		putInt( void ) const;
+		void		putFloat( void ) const;
+		void		putDouble( void ) const;
+
+		void		infoPrinter( void ) const;
 
 };
 
