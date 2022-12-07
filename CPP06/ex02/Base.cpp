@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:50:34 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/06 17:02:20 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/07 11:13:01 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void    identify( Base* p ) {
             return ;
         }
     }
-    catch ( std::bad_cast& e ) {
+    catch ( std::exception& e ) {
     
     }
     try {
@@ -78,7 +78,7 @@ void    identify( Base* p ) {
             return ;
         }
     }
-    catch ( std::bad_cast& e ) {
+    catch ( std::exception& e ) {
     
     }
     try {
@@ -90,7 +90,7 @@ void    identify( Base* p ) {
             return ;
         }
     }
-    catch ( std::bad_cast& e ) {
+    catch ( std::exception& e ) {
     
     }
 }
@@ -103,7 +103,7 @@ void identify ( Base& p ) {
         std::cout << "I'm A" << std::endl;
         return ;
     }
-    catch ( std::bad_cast& e ) {
+    catch ( std::exception& e ) {
         
     }
     try {
@@ -112,7 +112,7 @@ void identify ( Base& p ) {
         std::cout << "I'm B" << std::endl;
         return ;
     }
-    catch ( std::bad_cast& e ) {
+    catch ( std::exception& e ) {
         
     }
     try {
@@ -121,7 +121,7 @@ void identify ( Base& p ) {
         std::cout << "I'm C" << std::endl;
         return ;
     }
-    catch ( std::bad_cast& e ) {
+    catch ( std::exception& e ) {
         
     }
 }

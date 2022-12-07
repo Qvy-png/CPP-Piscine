@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:54:36 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/06 14:42:10 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/07 11:09:01 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define DATA_HPP
 
 # include <iostream>
+# include <stdint.h>
 
 class Data {
 

@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:50:38 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/06 16:26:16 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/07 11:13:44 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BASE_HPP
 
 # include <iostream>
+# include <cstdlib>
 # include "color.hpp"
 
 class Base {
