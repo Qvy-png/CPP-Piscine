@@ -6,15 +6,14 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:35:06 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/07 10:36:07 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/07 11:00:02 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
 
-Convert::Convert( void ) : _c( 0 ), _cOver( 0 ), _i( 0 ), _iOver( 0 ),
-                            _f( 0 ), _fOver( 0 ), _d( 0 ), _dOver( 0 ),
-                            _infPos( 0 ), _infNeg( 0 ), _err( 0 ) {
+Convert::Convert( void ) : _c( 0 ),  _i( 0 ), _f( 0 ), _d( 0 ), _infPos( 0 ),
+							_infNeg( 0 ), _nan( 0 ), _err( 0 ) {
 
     return ;
 }
@@ -32,13 +31,10 @@ Convert::Convert( const Convert& ref ) {
 Convert&    Convert::operator=( const Convert& ref ) {
 
     _c = ref._c;
-    _cOver = ref._cOver;
     _i = ref._i;
-    _iOver = ref._iOver;
     _f = ref._f;
-    _fOver = ref._fOver;
     _d = ref._d;
-    _dOver = ref._dOver;
+
     _infPos = ref._infPos;
     _infNeg = ref._infNeg;
     _nan = ref._nan;
@@ -73,7 +69,7 @@ void	Convert::convertChar( std::string& arg ) {
 void	Convert::putChar( void ) const {
 
 	
-	if ( _infNeg == 1 || _infPos == 1 || _nan == 1 || _cOver == 1 || _err == 1 )
+	if ( _infNeg == 1 || _infPos == 1 || _nan == 1 || _err == 1 )
 		std::cout << REDHB "Impossible" CRESET << std::endl;
 	else if ( std::isprint( _c ) == 0 )
 		std::cout << REDHB "Non displayable" CRESET << std::endl;
@@ -113,7 +109,7 @@ void	Convert::convertInt( std::string& arg ) {
 
 void	Convert::putInt( void ) const {
 
-	if ( _infNeg == 1 || _infPos == 1 || _nan == 1 || _cOver == 1 || _err == 1)
+	if ( _infNeg == 1 || _infPos == 1 || _nan == 1 || _err == 1)
 		std::cout << REDHB "Impossible" CRESET << std::endl;
 	else
 		std::cout << GRN << _i << CRESET << std::endl;
@@ -148,7 +144,7 @@ void	Convert::putFloat( void ) const {
 		std::cout << "+inff" << std::endl;
 	else if ( _nan == 1 )
 		std::cout << "nanf" << std::endl;
-	else if ( _fOver == 1 || _err == 1 )
+	else if ( _err == 1 )
 		std::cout << REDHB "Impossible" CRESET << std::endl;
 	else {
 
@@ -188,7 +184,7 @@ void	Convert::putDouble( void ) const {
 		std::cout << "+inf" << std::endl;
 	else if ( _nan == 1 )
 		std::cout << "nan" << std::endl;
-	else if ( _dOver == 1 || _err == 1 )
+	else if ( _err == 1 )
 		std::cout << REDHB "Impossible" CRESET << std::endl;
 	else {
 	
@@ -220,16 +216,12 @@ int		withinLim( std::string& arg ) {
 	long	i;
 
 	i = atol( arg.c_str() );
-	std::cout << i << std::endl;
 	if ( i > 2147483647 || i < -2147483648 )
 		return ( 0 );
 	return ( 1 );
 }
 
-Convert::Convert( std::string& arg ) : _cOver( 0 ), _iOver( 0 ), _fOver( 0 ),
-										_dOver( 0 ), _infPos( 0 ), _infNeg( 0 ),
-										_err( 0 ) {
-
+Convert::Convert( std::string& arg ) :_infPos( 0 ), _infNeg( 0 ), _nan( 0 ), _err( 0 ) {
 	
 	if ( arg.compare( "+inf" ) == 0 || arg.compare( "+inff" ) == 0 )
 		_infPos = 1;
@@ -249,7 +241,6 @@ Convert::Convert( std::string& arg ) : _cOver( 0 ), _iOver( 0 ), _fOver( 0 ),
 		convertDouble( arg );
 	else
 		_err = 1;
-	
 }
 
 void	Convert::infoPrinter( void ) const {
@@ -262,5 +253,4 @@ void	Convert::infoPrinter( void ) const {
 	this->putFloat();
 	std::cout << CYN << "double: ";
 	this->putDouble();
-	
 }

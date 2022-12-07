@@ -24,16 +24,9 @@ class Convert {
     private :
 
 		char	_c;
-		bool	_cOver;
-
 		int		_i;
-		bool	_iOver;
-		
 		float	_f;
-		bool	_fOver;
-
 		double	_d;
-		bool	_dOver;
 
 		bool	_infPos;
 		bool	_infNeg;
