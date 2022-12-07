@@ -15,7 +15,6 @@
 
 # include <string>
 # include <iostream>
-# include <stdlib.h>
 # include <cstdlib>
 
 # include "color.hpp"
@@ -61,7 +60,7 @@ class Convert {
 		void		putDouble( void ) const;
 
 		void		infoPrinter( void ) const;
-		
+
 };
 
 #endif

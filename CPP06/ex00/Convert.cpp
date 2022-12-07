@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:35:06 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/05 17:15:11 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/07 10:36:07 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,7 @@ void	Convert::putDouble( void ) const {
 		std::cout << "+inf" << std::endl;
 	else if ( _nan == 1 )
 		std::cout << "nan" << std::endl;
-	else if ( _fOver == 1 || _err == 1 )
+	else if ( _dOver == 1 || _err == 1 )
 		std::cout << REDHB "Impossible" CRESET << std::endl;
 	else {
 	
@@ -199,6 +199,8 @@ void	Convert::putDouble( void ) const {
 	}
 }
 
+///////////////////////////////////////////////////////////////
+
 int		rightChars( std::string& arg ) {
 
 	int	i;
@@ -206,10 +208,21 @@ int		rightChars( std::string& arg ) {
 	i = 0;
 	while ( arg.c_str()[i] ) {
 	
-		if ( ( arg.c_str()[i] != 'f' && arg.c_str()[i] != '.' && ( arg.c_str()[i] > '9' || arg.c_str()[i] < '0' ) ) )
+		if ( ( arg.c_str()[i] != 'f' && arg.c_str()[i] != '-' && arg.c_str()[i] != '.' && ( arg.c_str()[i] > '9' || arg.c_str()[i] < '0' ) ) )
 			return ( 0 );
 		i++;
 	}
+	return ( 1 );
+}
+
+int		withinLim( std::string& arg ) {
+
+	long	i;
+
+	i = atol( arg.c_str() );
+	std::cout << i << std::endl;
+	if ( i > 2147483647 || i < -2147483648 )
+		return ( 0 );
 	return ( 1 );
 }
 
@@ -224,12 +237,12 @@ Convert::Convert( std::string& arg ) : _cOver( 0 ), _iOver( 0 ), _fOver( 0 ),
 		_infNeg = 1;
 	else if ( arg.compare( "nan" ) == 0 || arg.compare( "nanf" ) == 0 )
 		_nan = 1;
-	if ( arg.length() > 1 && rightChars( arg ) == 0 )
+	else if ( ( arg.length() > 1 && rightChars( arg ) == 0 ) || withinLim( arg ) == 0 )
 		_err = 1;
-	else if ( isChar( arg ) )
-		convertChar( arg );
 	else if ( isInt( arg ) )
 		convertInt( arg );
+	else if ( isChar( arg ) )
+		convertChar( arg );
 	else if ( isFloat( arg ) )
 		convertFloat( arg );
 	else if ( isDouble( arg ) )
