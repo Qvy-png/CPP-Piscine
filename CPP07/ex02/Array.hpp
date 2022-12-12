@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:28:39 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/09 14:37:26 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:32:56 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ class Array {
 
     private :
 
-        
+        T*      _array;
+		size_t  _size;
         
     public :
     
