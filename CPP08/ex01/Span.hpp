@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:23:07 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/14 13:48:47 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:26:39 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 # include <vector>
 # include <iostream>
+# include <algorithm>
 # include "color.hpp"
+
+# define INT_MAX 2147483647
 
 class Span {
 

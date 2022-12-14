@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:56:49 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/14 12:20:52 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:25:35 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define EASYFIND_HPP
 
 # include <iostream>
+# include <algorithm>
 # include "color.hpp"
 
 class   NotInContainer : public std::exception {
