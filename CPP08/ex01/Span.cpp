@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:23:14 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/14 13:48:13 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/16 11:27:22 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,9 @@ void    Span::displayVec( void ) {
 }
 
 void    Span::addNumber( size_t i ) {
-
-    std::vector<int>::iterator it1 = _vec.begin();
-    std::vector<int>::iterator it2 = _vec.end();
     
     if ( _vec.size() >= _size )
         throw ( Span::tooMuch() );
-    for ( ; it1 !=it2; it1++ ) {
-    
-        if ( static_cast<unsigned int>(*it1) == i )
-            throw ( alreadyInVec() );
-    }
     _vec.push_back( i );
 }
 
@@ -82,4 +74,11 @@ size_t  Span::shortestSpan( void ) {
 				i = std::abs(*it1 - *it3);
 	}
     return ( i );
+}
+
+void    Span::addIter( std::vector<int>::iterator begin, std::vector<int>::iterator end ) {
+
+    if ( std::distance( begin, end ) + _vec.size() >= _size )
+        throw ( Span::tooMuchRange() );
+    _vec.insert( _vec.end(), begin, end );
 }

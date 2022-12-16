@@ -6,7 +6,7 @@
 #    By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/22 14:31:34 by rdel-agu          #+#    #+#              #
-#    Updated: 2022/12/14 12:21:32 by rdel-agu         ###   ########.fr        #
+#    Updated: 2022/12/16 11:34:51 by rdel-agu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ OBJ = $(SRC:.cpp=.o)
 SRC =	main.cpp\
 
 INCL =	easyFind.hpp\
+		easyFind.tpp\
 		color.hpp
 		
 all: $(NAME)

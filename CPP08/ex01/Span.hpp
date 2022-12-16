@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:23:07 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/14 16:26:39 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/16 11:20:53 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <vector>
 # include <iostream>
 # include <algorithm>
+# include <iterator>
 # include "color.hpp"
 
 # define INT_MAX 2147483647
@@ -41,13 +42,15 @@ class Span {
         size_t  shortestSpan( void );
         size_t  longestSpan( void );
 
-        class   alreadyInVec : public std::exception {
+        void    addIter( std::vector<int>::iterator, std::vector<int>::iterator );
+
+        class   tooMuchRange : public std::exception {
         
             public:
 
                 virtual const char* what ( void ) const throw() {
                 
-                    return ( REDHB "Value already exists" CRESET );
+                    return ( REDHB "The range you're trying to add is too big" CRESET );
                 }
         };
 

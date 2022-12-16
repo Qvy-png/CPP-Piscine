@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:56:49 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/14 16:25:35 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/16 11:35:07 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,6 @@
 # include <iostream>
 # include <algorithm>
 # include "color.hpp"
-
-class   NotInContainer : public std::exception {
-
-    public:
-    
-        virtual const char* what ( void ) const throw() {
-        
-            return ( REDHB "Value not found in the container" CRESET );
-        }
-};
-
-template<typename T>
-int easyFind( T c, int i ) {
-
-    if ( std::find( c.begin(), c.end(), i ) != c.end() )
-        return ( 1 );
-    else
-        throw NotInContainer();
-}
-
-
+# include "easyFind.tpp"
 
 #endif

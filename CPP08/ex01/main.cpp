@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:14:13 by rdel-agu          #+#    #+#             */
-/*   Updated: 2022/12/14 14:00:36 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2022/12/16 11:27:54 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,15 +118,14 @@ int main( void ) {
     try {
         
         int i = 0;
-		Span span1 = Span( 10001 );
-        while ( i < 10001 ) {
+		Span span5 = Span( 10001 );
+        std::vector<int> insert;
         
-            span1.addNumber( i );
-            i++;
-        }
-
-		std::cout << GRN "shortest : " << span1.shortestSpan() << CRESET << std::endl;
-		std::cout << GRN "longuest : " << span1.longestSpan() << CRESET << std::endl;
+        while ( i < 10000 )
+            insert.push_back( i++ );
+        span5.addIter( insert.begin(), insert.end() );
+		std::cout << GRN "shortest : " << span5.shortestSpan() << CRESET << std::endl;
+		std::cout << GRN "longuest : " << span5.longestSpan() << CRESET << std::endl;
 	}
     catch ( std::exception &e ) {
 	
