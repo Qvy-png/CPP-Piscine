@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:48:49 by rdel-agu          #+#    #+#             */
-/*   Updated: 2023/04/24 15:19:47 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:17:32 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ class RPN
         RPN(std::string str);
         RPN(RPN const &src);
         ~RPN(void);
-        RPN &operator=(RPN const &src);
-        void parse(void);
+        
+        RPN     &operator=(RPN const &src);
+        bool    parse(void);
 };
 
 #endif

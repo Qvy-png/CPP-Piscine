@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:44:44 by rdel-agu          #+#    #+#             */
-/*   Updated: 2023/04/24 15:07:20 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:17:59 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ int main(int argc, char **argv)
     if ( !argChecker(argv[1] ) )
         return (2);
     RPN rpn(argv[1]);
-    rpn.parse();
-    return (0);
+    // rpn.parse();
+    return ( rpn.parse());
 }
