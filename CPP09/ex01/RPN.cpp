@@ -6,7 +6,7 @@
 /*   By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:00:39 by rdel-agu          #+#    #+#             */
-/*   Updated: 2023/04/24 17:15:37 by rdel-agu         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:54:37 by rdel-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,14 @@ bool RPN::parse(void) {
             this->_stack.push(a + b);
         }
         else if (this->_str[i] == '-')  {
-
+            
             if (this->_stack.size() < 2)    {
-
                 std::cout << RED << "Error: " << CRESET << "Not enough numbers in the stack" << std::endl;
                 return ( true );
             }
-            int a = this->_stack.top();
-            this->_stack.pop();
             int b = this->_stack.top();
+            this->_stack.pop();
+            int a = this->_stack.top();
             this->_stack.pop();
             this->_stack.push(a - b);
         }
@@ -89,15 +88,14 @@ bool RPN::parse(void) {
             this->_stack.push(a * b);
         }
         else if (this->_str[i] == '/')  {
-
+            
             if ( this->_stack.size() < 2 )  {
-    
                 std::cout << RED << "Error: " << CRESET << "Not enough numbers in the stack" << std::endl;
                 return ( true );
             }
-            int a = this->_stack.top();
-            this->_stack.pop();
             int b = this->_stack.top();
+            this->_stack.pop();
+            int a = this->_stack.top();
             this->_stack.pop();
             this->_stack.push(a / b);
         }
