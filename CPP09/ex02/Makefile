@@ -6,11 +6,11 @@
 #    By: rdel-agu <rdel-agu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 13:19:42 by rdel-agu          #+#    #+#              #
-#    Updated: 2023/04/24 14:44:23 by rdel-agu         ###   ########.fr        #
+#    Updated: 2023/04/25 15:00:31 by rdel-agu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = RPN
+NAME = PmergeMe
 
 CXX = c++
 
@@ -21,10 +21,10 @@ RM = rm
 OBJ = $(SRC:.cpp=.o)    
 
 SRC =	main.cpp\
-		RPN.cpp
+		PmergeMe.cpp
 
 INCL =	color.hpp\
-		RPN.hpp
+		PmergeMe.hpp
 		
 		
 all: $(NAME)
